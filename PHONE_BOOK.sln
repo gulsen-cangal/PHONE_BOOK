@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonProcesses", "PersonProcesses\PersonProcesses.csproj", "{BA225598-6058-42C4-94B2-2B816F13FF7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA225598-6058-42C4-94B2-2B816F13FF7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA225598-6058-42C4-94B2-2B816F13FF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA225598-6058-42C4-94B2-2B816F13FF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA225598-6058-42C4-94B2-2B816F13FF7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0A76247-F26C-4EB1-9454-D2B46861CF16}
+	EndGlobalSection
+EndGlobal
