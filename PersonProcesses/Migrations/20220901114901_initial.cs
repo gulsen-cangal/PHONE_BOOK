@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PersonProcesses.Migrations
+namespace PersonProcesses.API.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace PersonProcesses.Migrations
                 name: "Persons",
                 columns: table => new
                 {
-                    UUId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UUID = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Surname = table.Column<string>(type: "text", nullable: false),
                     Company = table.Column<string>(type: "text", nullable: false),
@@ -21,14 +21,14 @@ namespace PersonProcesses.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Persons", x => x.UUId);
+                    table.PrimaryKey("PK_Persons", x => x.UUID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "ContactInformations",
                 columns: table => new
                 {
-                    UUId = table.Column<Guid>(type: "uuid", nullable: false),
+                    UUID = table.Column<Guid>(type: "uuid", nullable: false),
                     InformationType = table.Column<int>(type: "integer", nullable: false),
                     InformationContent = table.Column<string>(type: "text", nullable: false),
                     PersonUUId = table.Column<Guid>(type: "uuid", nullable: false),
@@ -36,12 +36,12 @@ namespace PersonProcesses.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContactInformations", x => x.UUId);
+                    table.PrimaryKey("PK_ContactInformations", x => x.UUID);
                     table.ForeignKey(
                         name: "FK_ContactInformations_Persons_PersonUUId",
                         column: x => x.PersonUUId,
                         principalTable: "Persons",
-                        principalColumn: "UUId",
+                        principalColumn: "UUID",
                         onDelete: ReferentialAction.Cascade);
                 });
 

@@ -6,7 +6,7 @@ namespace PersonProcesses.Entities.Base
     {
         [Key]
         [Required]
-        public Guid UUId { get; set; }
+        public Guid UUID { get; set; }
         public DateTime CreationDate { get; set; } = DateTime.UtcNow;
     }
 }

@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using PersonProcesses.API.Services.Interfaces;
+using PersonProcesses.API.Services;
 using PersonProcesses.Entities.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,9 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PersonProcessesContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("ConString")));
-
+builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IContactInformationService, ContactInformationSevice>();
+builder.Services.AddHttpClient();
 var app = builder.Build();
-
+app.Services.CreateScope().ServiceProvider.GetRequiredService<PersonProcessesContext>().Database.Migrate();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

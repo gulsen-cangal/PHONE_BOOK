@@ -8,7 +8,7 @@ using PersonProcesses.Entities.Context;
 
 #nullable disable
 
-namespace PersonProcesses.Migrations
+namespace PersonProcesses.API.Migrations
 {
     [DbContext(typeof(PersonProcessesContext))]
     partial class PersonProcessesContextModelSnapshot : ModelSnapshot
@@ -24,7 +24,7 @@ namespace PersonProcesses.Migrations
 
             modelBuilder.Entity("PersonProcesses.Entities.ContactInformation", b =>
                 {
-                    b.Property<Guid>("UUId")
+                    b.Property<Guid>("UUID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
@@ -41,7 +41,7 @@ namespace PersonProcesses.Migrations
                     b.Property<Guid>("PersonUUId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("UUId");
+                    b.HasKey("UUID");
 
                     b.HasIndex("PersonUUId");
 
@@ -50,7 +50,7 @@ namespace PersonProcesses.Migrations
 
             modelBuilder.Entity("PersonProcesses.Entities.Person", b =>
                 {
-                    b.Property<Guid>("UUId")
+                    b.Property<Guid>("UUID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
@@ -69,7 +69,7 @@ namespace PersonProcesses.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("UUId");
+                    b.HasKey("UUID");
 
                     b.ToTable("Persons");
                 });
