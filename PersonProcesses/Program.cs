@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using PersonProcesses.API.Services.Interfaces;
 using PersonProcesses.API.Services;
 using PersonProcesses.Entities.Context;
+using PersonProcesses.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
