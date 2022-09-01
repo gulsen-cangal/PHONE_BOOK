@@ -31,6 +31,10 @@ namespace Report.API.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("ReportPath")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("ReportStatus")
                         .HasColumnType("integer");
 

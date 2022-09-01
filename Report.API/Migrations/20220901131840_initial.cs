@@ -16,6 +16,7 @@ namespace Report.API.Migrations
                     UUID = table.Column<Guid>(type: "uuid", nullable: false),
                     RequestDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     ReportStatus = table.Column<int>(type: "integer", nullable: false),
+                    ReportPath = table.Column<string>(type: "text", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>

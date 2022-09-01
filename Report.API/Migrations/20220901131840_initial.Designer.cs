@@ -12,7 +12,7 @@ using Report.API.Entities.Context;
 namespace Report.API.Migrations
 {
     [DbContext(typeof(ReportContext))]
-    [Migration("20220901125848_initial")]
+    [Migration("20220901131840_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,10 @@ namespace Report.API.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ReportPath")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("ReportStatus")
                         .HasColumnType("integer");

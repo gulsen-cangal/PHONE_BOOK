@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Report.API.Entities.Context;
+using Report.API.Services;
+using Report.API.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ReportContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("ConString")));
+builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
