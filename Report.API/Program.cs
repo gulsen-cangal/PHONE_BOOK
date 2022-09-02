@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using Report.API.Constants;
 using Report.API.Entities.Context;
+using Report.API.Middleware;
+using Report.API.ServiceExtension;
 using Report.API.Services;
 using Report.API.Services.Interfaces;
 
@@ -12,10 +15,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ReportContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("ConString")));
+builder.Services.Configure<ReportSettings>(builder.Configuration.GetSection("Options"));
 builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
-var app = builder.Build();
 
+var app = builder.Build();
+app.Services.CreateScope().ServiceProvider.GetRequiredService<ReportContext>().Database.Migrate();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -23,7 +29,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRabbitMq();
+
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseAuthorization();
 

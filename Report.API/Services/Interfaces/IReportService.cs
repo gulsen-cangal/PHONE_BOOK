@@ -1,4 +1,5 @@
-﻿using Report.API.Data;
+﻿using Report.API.Constants;
+using Report.API.Data;
 
 namespace Report.API.Services.Interfaces
 {
@@ -7,5 +8,7 @@ namespace Report.API.Services.Interfaces
         Task<ReportReturnData> CreateNewReport();
         Task<ReportReturnData> GetAllReports();
         Task<ReportReturnData> GetReportDetail(Guid reportId);
+        Task<ReportReturnData> CreateReportDetail(Guid reportId);
+        Task CreateRabbitMQPublisher(ReportRequestData reportRequestData, ReportSettings reportSettings);
     }
 }
