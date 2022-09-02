@@ -1,5 +1,5 @@
 # PHONE_BOOK
-Rise Technology firmasının assessment projesidir. Uygulama microservis mimarisiyle tasarlanmış bir telefon rehberi uygulamasıdır. Çalışmadan beklenen genel yapı :
+Uygulama microservis mimarisiyle tasarlanmış bir telefon rehberi uygulamasıdır. Çalışmadan beklenen genel yapı :
 
 - Minimum, Report ve PersonProcesses olmak üzere 2 micro servis olmalıdır.
 - PersonProcesses micro servisinde kişilere ve kişilere ait iletişim bilgilerinin (Kişinin 1'e N ilişkili iletişim bilgisi olabilir) temel CRUD işlemleri yapılmaktadır. 
