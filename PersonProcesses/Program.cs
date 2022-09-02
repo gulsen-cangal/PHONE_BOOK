@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PersonProcessesContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("ConString")));
 builder.Services.AddScoped<IPersonService, PersonService>();
-builder.Services.AddScoped<IContactInformationService, ContactInformationSevice>();
+builder.Services.AddScoped<IContactInformationService, ContactInformationService>();
 builder.Services.AddHttpClient();
 var app = builder.Build();
 app.Services.CreateScope().ServiceProvider.GetRequiredService<PersonProcessesContext>().Database.Migrate();

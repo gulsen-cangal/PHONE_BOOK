@@ -27,10 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PersonProcessesTests\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\PersonProcesses\PersonProcesses.API.csproj" />
     <ProjectReference Include="..\Report.API\Report.API.csproj" />
   </ItemGroup>
 

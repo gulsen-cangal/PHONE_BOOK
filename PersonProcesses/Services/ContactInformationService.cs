@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PersonProcesses.API.Services
 {
-    public class ContactInformationSevice:BaseService, IContactInformationService
+    public class ContactInformationService:BaseService, IContactInformationService
     {
-        public ContactInformationSevice(PersonProcessesContext context) : base(context)
+        public ContactInformationService(PersonProcessesContext context) : base(context)
         {
         }
 
